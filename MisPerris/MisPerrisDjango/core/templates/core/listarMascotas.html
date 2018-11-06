@@ -1,0 +1,24 @@
+{% extends 'core/menu.html' %}
+
+{% block listarMascotas %}
+<h1>Listado de Mascotas</h1>
+<table class="table">
+    <tr>
+        <td>ID Mascota</td>
+        <td>Nombre</td>
+        <td>Descripción</td>
+        <td>Raza</td>
+        <td>Estado</td>
+    </tr>
+    {% for p in mascotas %}
+    <tr>
+        <td>{{p.idMascota}}</td>
+        <td>{{p.name}}</td>
+        <td>{{p.descripcion}}</td>
+        <td>{{p.raza}}</td>
+        <td>{{p.idEstado}}</td>
+    </tr>
+    {% endfor %}
+</table>
+<a href="{% url 'home' %}">Volver</a>
+{% endblock listarMascotas %}

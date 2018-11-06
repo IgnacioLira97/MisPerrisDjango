@@ -1,0 +1,227 @@
+body, html{
+    margin: 0px;
+    padding: 0px;
+    background-color: white;
+    
+}
+
+.active {
+    background-color: #4CAF50;
+}
+
+.Container {
+    width: 100%;
+    min-width: 500px;
+    margin: auto;
+}
+
+.content {
+    width: 100%;
+    background-color: #fff;
+    padding-top: 0px;
+}
+
+.imgbox {
+    width: 100%;
+    display: grid;
+    height: 50%;
+    padding-top: 150px;
+    background-color: rgb(75, 201, 157); 
+   }
+
+.header {
+    width: 100%;
+    height: 100px;
+
+    background-color: seagreen;
+} 
+
+
+
+.textoGrande{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+    color: white;
+    padding-left: 60px
+    
+}
+
+table{
+    width: 100%;
+}
+
+.Logo{
+    padding-top: 20px;
+}
+
+.Perro{
+    max-width: 100%;
+    max-height: 55vh;
+    margin: auto;   
+
+}
+
+.Social{
+    float: right;
+    padding: 20px;
+    padding-top: 50px;
+    font-size: 50px;
+    width: 74px;
+    border-radius: 50%;
+    
+}
+
+.main_articles {
+    width: 100%;
+    float: left;
+    
+}
+
+.content-left
+{
+    margin-top: 3%;  
+    float: left;
+    
+    width: 50%;
+}
+
+.content-right
+{
+    margin-top: 3%;
+    float: right;
+    background: white;
+    width: 50%;
+}
+
+.content-left h3 
+{
+    float: right;
+    margin-left: 75%;
+    margin-right: 5%
+}
+    
+.content-left p 
+{
+    text-align: right;
+    width: 65%;
+    float: right;
+    margin-left: 60%;
+    margin-right: 5%
+}
+    
+.content-right p
+{
+    text-align: Left;
+    width: 65%;
+    float: Left;
+    margin-left: 5%;
+    margin-right: 60%
+}
+    
+.content-right h3
+{
+    float: left;
+    margin-left: 5%;
+    margin-right: 75%
+    
+}
+
+.img-comida{
+    
+    max-width: 100%;
+    max-height: 40vh;
+    margin: auto;  
+}
+.img-rescate 
+{ 
+    
+    max-width: 100%;
+    max-height: 50vh;
+    margin-left: 75%;
+    float: right; 
+    margin-right: 5%
+}
+
+
+/* Tablas */
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.tableIngresar {
+    border-collapse: collapse;
+    width: 50%;
+    max-width: 100%;
+    max-height: 50vh;
+    margin-top: 5%;
+    margin-left: 10%;
+}
+.tableRegistrar{
+    border-collapse: collapse;
+    width: 50%;
+    max-width: 100%;
+    max-height: 50vh;
+    margin-top: 5%;
+    margin-left: 10%;
+}
+
+.bold1 {
+    margin-left: -25px;
+    margin-right: 20px;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/*Menú*/
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    
+}
+
+li {
+    float: right;
+    border-right: 1px solid #bbb;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #111;
+}
+
+
+
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+

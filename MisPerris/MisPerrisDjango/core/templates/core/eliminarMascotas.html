@@ -1,0 +1,23 @@
+{% extends 'core/menu.html' %}
+{% block titulo %}
+Eliminar
+{% endblock %}
+{% block contenedor %}
+
+<h1>Eliminar Mascota</h1>
+<form method="POST">
+    {% csrf_token %}
+    Seleccione mascota a eliminar:
+    <select name="id">
+        <option>Seleccionar ID Mascota</option>
+        {% for p in mascotas %}
+        <option>{{p.idMascota}}</option>
+        {% endfor %}
+    </select>
+    <input type="submit" value="Eliminar"/>
+</form>
+{% if respuesta %}
+    <h1>Elimino</h1>
+{% endif %}
+<a href="{% url 'home' %}">Volver</a>
+{% endblock %}

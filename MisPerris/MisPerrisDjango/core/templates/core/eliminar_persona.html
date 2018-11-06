@@ -1,0 +1,23 @@
+{% extends 'core/menu.html' %}
+{% block titulo %}
+    Eliminar Postulante
+{% endblock %}
+{% block contenido %}
+    <h1>Eliminar doge</h1>
+    <form method="POST">
+        {% csrf_token %}
+        Seleccione Postulante a eliminar:
+        <select name="run">
+            {% for p in personas %}
+            <option>{{p.run}}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="Eliminar"/>
+    </form>
+    <a href="{% url 'menu_persona' %}">Volver al Menú</a>
+    {% if respuesta %}
+        <h1>Eliminó</h1>
+    {% endif %}
+
+    
+{% endblock contenido %}

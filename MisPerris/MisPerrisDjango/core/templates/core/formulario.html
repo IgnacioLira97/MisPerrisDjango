@@ -1,0 +1,89 @@
+{% extends 'core/menu.html' %}
+{% block titulo %}
+    Ingreso de Postulante
+{% endblock titulo %}
+{% block contenido %}
+    <h1>Formulario ingreso de Usuario</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <table class="table">
+            <tr>
+                <td>RUN:</td>
+                <td>
+                    <input type="text" name="run" id="run"/>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Nombre completo:</td>
+                <td>
+                    <input type="text" name="nombre" id="nombre"/>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Correo:</td>
+                <td>
+                    <input type="email" name="correo" id="correo"/>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Contraseña:</td>
+                <td>
+                    <input type="password" name="password" id="password"/>
+                </td>
+            </tr>
+
+            <tr>
+                <td>fecha Nacimiento:</td>
+                <td>
+                    <input type="date" name="fecha" id="correo"/>
+                </td>
+            </tr>
+
+            <tr>
+                <td>telefono:</td>
+                <td>
+                    <input type="text" name="telefono" id="correo"/>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>ciudad:</td>
+                <td>
+                    <select name="ciudad">
+                        <option>Seleccione</option>
+                        {% for city in ciudades %}
+                        <option>{{city.name}}</option>
+                        {% endfor %}
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>tipo Vivienda:</td>
+                <td>
+                    <select name="vivienda">
+                        <option>Seleccione</option>
+                        {% for vivienda in viviendas %}
+                        <option>{{vivienda.tipo}}</option>
+                        {% endfor %}
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <input type="submit" value="Grabar"/>
+                    <input type="reset" value="Limpiar"/>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <a href="{% url 'menu_persona' %}">Volver al Menú</a>
+    {% if respuesta %}
+       <h1>Grabó Persona</h1>
+    {% endif %}
+    
+{% endblock contenido %}

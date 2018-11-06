@@ -1,0 +1,53 @@
+{% extends 'core/menu.html' %}
+{% block titulo %}
+    Listado de Postulantes
+{% endblock %}
+
+{% block contenido %}
+
+<h2>Listado Postulantes</h2>
+
+<table>
+
+    <tr>
+        <th>RUN</th>
+        <th>Nombre</th>
+        <th>Correo</th>
+        <th>Fecha de Nacimiento</th>    
+        <th>Teléfono</th>
+        <th>Ciudad</th>
+        <th>Tipo de Vivienda</th>
+    </tr>
+
+    {% for a in personas %}
+
+    <tr>
+        <td>{{ a.run }}</td>
+        <td>{{ a.nombre }}</td>
+        <td>{{ a.correo }}</td>
+        <td>{{ a.fechaNacimiento }}</td>
+        <td>{{ a.telefono }}</td>
+        <td>{{ a.idCiudad }}</td>
+        <td>{{ a.tipoVivienda }}</td>
+        <td>
+            <a href="{% url 'eliminar_persona'  %}">Eliminar</a>
+            <a href="{% url 'modificar_personas'  %}">Modificar</a>
+        </td>
+    </tr>
+
+    {% endfor %}
+    <a href="{% url 'menu_persona' %}">Volver al Menú</a>
+
+   
+
+</table>
+{% if messages %}
+
+    {% for m in messages  %}
+    <div>{{ m }}</div>
+    {% endfor %}
+
+    
+{% endif %}
+
+{% endblock contenido %}
