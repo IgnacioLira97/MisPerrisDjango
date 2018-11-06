@@ -9,18 +9,13 @@
 <script src="js/Telefono.js"></script>
 <script src="js/jquery-3.3.1.min.js"></script>
 
-<form action="" id="agregarMascota" method="POST">
+<form action="" id="agregarMascota" method="POST" enctype="multipart/form-data">
     <h1>Formulario ingreso de Mascota</h1>
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
-        <table class="table">
 
-            <tr>
-                <td>ID Mascota:</td>
-                <td>
-                    <input type="number" name="id" id="id"/>
-                </td>
-            </tr>
+        <table class="table" style="background-color:#e4ffea">
+
 
             <tr>
                 <td>Nombre:</td>
@@ -69,15 +64,15 @@
 
             <tr>
                 <td>
-                    <input type="submit" value="Grabar"/>
-                    <input type="reset" value="Limpiar"/>
+                    <input class="btn btn-success" type="submit" value="Grabar"/>
+                    <input class="btn btn-success" type="reset" value="Limpiar"/>
                 </td>
             </tr>
         </table>
     </form>
     <br>
     {% if respuesta %}
-       <h1>Grabo Pelicula</h1>
+       <h1>Guardó Registro de Mascota</h1>
     {% endif %}
-    <a href="{% url 'home' %}">Volver</a>
+    <a href="{% url 'menu_perros' %}" class="btn btn-success">Volver</a>
 {% endblock agregarMascota %}

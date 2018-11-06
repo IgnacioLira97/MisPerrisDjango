@@ -9,7 +9,7 @@
         {% csrf_token %}
         <table class="table">
             <tr>
-                <td>Titulo:</td>
+                <td>Rut:</td>
                 <td>
                     <select name="run">
                         {% for p in user %}
@@ -21,6 +21,12 @@
                         {% endfor %}
                     </select>
                     <input type="submit" name="btnAccion" value="Buscar"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Nombre de usuario:</td>
+                <td>
+                    <input type="text" name="usuario" id="usuario" value="{{pe.usuario}}"/>
                 </td>
             </tr>
             <tr>
@@ -52,20 +58,19 @@
             </tr>
 
             <tr>
-                <td>Ciudad:</td>
+                <td>Region:</td>
                 <td>
-                    <select name="ciudad">
-                        <option>Seleccione</option>
-                        {% for ciudad in ciudades %}
-                            {% if ciudad.name == pe.idCiudad.name %}
-                                    <option selected>{{ciudad.name}}</option>
-                                {% else %}
-                                    <option>{{ciudad.name}} </option>
-                                {% endif %}
-                        {% endfor %}
-                    </select>
+                    <select class="form-control"  id="regiones" name="region"><optgroup label="This is a group"><option value="{{pe.region}}" selected>This is item 1</option></optgroup></select>
+
                 </td>
             </tr>
+            <tr>
+                <td>ciudad:</td>
+                <td>
+                    <select class="form-control" id="comunas"  name="comuna"><optgroup label="This is a group"><option value="{{pe.comuna}}" selected>This is item 1</option></optgroup></select>
+                </td>
+            </tr>
+
             <tr>
                 <td>Tipo de Vivienda:</td>
                 <td>

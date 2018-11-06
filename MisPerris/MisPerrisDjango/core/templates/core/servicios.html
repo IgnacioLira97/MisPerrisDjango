@@ -1,6 +1,8 @@
 {% extends 'core/menu.html' %}
 {% load static %}
-
+{% block titulo %}
+    Página de Gestión Fundación Mis Perris
+{% endblock %}
 
 {% block contenido %}
 
@@ -17,9 +19,9 @@
 
 
                             
-                                <a class="navcenter" href="{% url 'menu_persona' %}">Agregar Usuario</a>
+                                <a class="navcenter" href="{% url 'menu_persona' %}">Menú Usuarios</a>
                             
-                                <a class="navcenter" href="{% url 'menu_perros' %}">Agregar Perros</a>
+                                <a class="navcenter" href="{% url 'menu_perros' %}">Menú Perros</a>
                         </nav>
                     </td>
                 </tr>

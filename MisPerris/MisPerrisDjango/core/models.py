@@ -39,14 +39,16 @@ class Raza(models.Model):
     def __str__(self):
         return self.Raza
 
-class User(models.Model):
+class Usuario(models.Model):
     run=models.CharField(max_length=14,primary_key=True)
+    usuario=models.CharField(max_length=30)
     nombre=models.CharField(max_length=255, null=True)
     correo=models.CharField(max_length=50)
     fechaNacimiento=models.DateField()
     telefono=models.CharField(max_length=9)
     password=models.CharField(max_length=100)
-    idCiudad=models.ForeignKey(Ciudad,on_delete=models.CASCADE)
+    region=models.CharField(max_length=150)
+    ciudad=models.CharField(max_length=150)
     tipoVivienda=models.ForeignKey(tipoVivienda,on_delete=models.CASCADE)
 
     def __str__(self):

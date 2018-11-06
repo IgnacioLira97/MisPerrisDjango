@@ -17,16 +17,22 @@
 
                                                         <ul class="navegacion">
                                                                 <li>
-                                                                        <a class="spaceingequisde" href="{% url 'agregarMascota' %}">Agregar</a>
+                                                                        <a href="{% url 'agregarMascota' %}">Agregar</a>
                                                                 </li>
 
                                                                 <li>
-                                                                        <a class="spaceingequisde" href="{% url 'listarMascotas' %}">Listar</a>
+                                                                        <a href="{% url 'listarMascotas' %}">Listar</a>
                                                                 </li>
 
                                                                 <li>
-                                                                        <a class="spaceingequisde" href="{% url 'actualizarMascota' %}">Modificar</a>
+                                                                        <a href="{% url 'actualizarMascota' %}">Modificar</a>
                                                                 </li>
+                                                                
+                                                                <li>
+                                                                        <a href="{% url 'eliminarMascota' %}">Eliminar</a>
+                                                                </li>
+
+                                                                <a href="{% url 'servicios' %}"class="menu btn btn-success">Volver</a>
 
                                                         </ul>
 

@@ -1,9 +1,12 @@
 {% extends 'core/menu.html' %}
 
 {% load static %}
-
+{% block titulo %}
+    Galería Fundación Mis Perris
+{% endblock %}
 {% block contenido %}
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.4.1/jquery.fancybox.min.js"></script>
 
 
 <div class="content.estilos">
@@ -54,7 +57,7 @@
 <div class="galeria">
     
         <ul class="galeria1">
-            <li><a data-fancybox="gallery"  href="{% static 'core/img/Oso.jpg' %}"><img src= "{% static 'core/img/Oso.jpg' %}"></a></li>
+            <li><a data-fancybox="gallery.estilos"  href="{% static 'core/img/Oso.jpg' %}"><img src= "{% static 'core/img/Oso.jpg' %}"></a></li>
             <li><a data-fancybox="gallery" href="{% static 'core/img/Wifi.jpg' %}"><img src="{% static 'core/img/Wifi.jpg' %}"></a></li>
             <li><a data-fancybox="gallery"href="{% static 'core/img/Maya.jpg' %}"><img src="{% static 'core/img/Maya.jpg' %}"></a></li>
             <li><a data-fancybox="gallery"href="{% static 'core/img/Pexel.jpg' %}"><img src="{% static 'core/img/Pexel.jpg' %}"></a></li>

@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'MisPerrisDjango.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'misperris.db',
+        'NAME': 'GringoSan.db',
     }
 }
 

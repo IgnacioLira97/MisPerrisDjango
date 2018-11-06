@@ -38,6 +38,7 @@ urlpatterns = [
     path('recuperar/',recuperar,name='recuperar'),
     path('logout/',logout,name='logout'),
     path('login/',login,name='login'),
+    path('login/registro/',regPersona,name='reg'),
     
     #borre los import de los 2 path comentado ya que me tiraba error al momento de arrancar el server
 ]
