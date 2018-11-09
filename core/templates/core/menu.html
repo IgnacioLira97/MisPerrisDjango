@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" style="
+background: rgb(133, 212, 183);
+">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'core/css/estilos.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/design.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
+    <script src="{% static 'core/js/inicializacion.js' %}"></script>
+
+    <script src="{% static 'core/js/Regionycomuna.js' %}"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+
+    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.4.1/jquery.fancybox.min.css" />
+    <style>
+        .carousel-inner img {
+            height: 50%;
+            width: 50%;
+            margin-left: 25%
+        }
+    </style>
+    
+
+    <title>
+        {% block titulo %}
+
+        {% endblock %}
+    </title>
+</head>
+
+<div class="Container.estilos" style="background: rgb(133, 212, 183)">
+    <a href="{% url 'home' %}"><img class="logo.estilos" src="{% static 'core/img/logo.png' %}"  alt="logo"></a> 
+    <ul class="navegacion">
+        <li>
+            <a href="{% url 'home' %}">Inicio</a>
+        </li>
+        <li>
+            <a href="#">Quienes somos</a>
+        </li>
+        {% if admin %}
+        <li>
+            <a href="{% url 'servicios' %}">Servicios</a>
+        </li>
+        {% endif %}
+        <li>
+            <a href="#">Contactanos</a>
+        </li>
+        <li>
+            <a href="{% url 'ListarMascotasGaleria' %}">Galeria</a>
+        </li>
+
+        {% if ingresado %}
+        <li>
+            <a href="{% url 'logout' %}">Salir</a>
+        </li>
+        {% endif %}
+        <!-- Login only shows up on hompage navmenu -->
+        {% if deslog %}
+        <li>
+            <a href="{% url 'login' %}">Login</a>
+        </li>
+        {% endif %}
+
+    </ul>
+    {% block agregarMascota %}
+
+    {% endblock agregarMascota %}
+
+    {% block listarMascotas %}
+
+    {% endblock listarMascotas %}
+
+    {% block modificarMascotas%}
+
+    {% endblock modificarMascotas%}
+
+
+
+
+    <div>
+        {% block contenido %}
+
+        {% endblock contenido %}
+
+    </div>
+</div>

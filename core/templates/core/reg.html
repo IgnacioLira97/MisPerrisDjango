@@ -1,0 +1,107 @@
+{% extends 'core/menu.html' %}
+
+{% block titulo %}
+Ingreso de Postulante
+{% endblock titulo %}
+{% block contenido %}
+
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card">
+            <header class="card-header">
+                <a href="/login" class="float-right btn btn-outline-primary mt-1">Log in</a>
+                <h4 class="card-title mt-2">Sign up</h4>
+            </header>
+            <article class="card-body">
+                <form method="POST">
+                    {% csrf_token %}
+
+                    <div class="form-row">
+                        <div class="col form-group">
+                            <label>Run </label>
+                            <input type="text" class="form-control" name="run" id="run" placeholder="">
+                        </div> <!-- form-group end.// -->
+                        <div class="col form-group">
+                            <label>Usuario</label>
+                            <input type="text" class="form-control" name="usuario" id="usuario" placeholder=" ">
+                        </div> <!-- form-group end.// -->
+                    </div> <!-- form-row end.// -->
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label>Email address</label>
+                            <input type="email" class="form-control" name="correo" id="correo" placeholder="">
+                            <small class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        </div>
+                        <div class="col form-group">
+                            <label>Nombre</label>
+                            <input type="text" class="form-control" name="nombre" id="nombre" placeholder=" ">
+                        </div>
+                    </div>
+                    <!-- form-group end.// -->
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label>Fecha Nacimiento</label>
+                            <input class="form-control" type="date" name="fecha" id="fecha">
+                        </div> <!-- form-group end.// -->
+                        <div class="form-group col-md-6">
+                            <div>
+                                <label>Telefono</label>
+                                <input class="form-control" type="text" name="telefono" id="correo" />
+                            </div>
+                        </div>
+                    </div>
+                    <!-- form-group end.// -->
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label>Region</label>
+                            <select class="form-control" id="regiones" name="region">
+                                <optgroup label="This is a group">
+                                    <option value="12" selected>This is item 1</option>
+                                </optgroup>
+                            </select>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label>Cuidad</label>
+                            <select class="form-control" id="comunas" name="comuna">
+                                <optgroup label="This is a group">
+                                    <option value="12" selected>This is item 1</option>
+                                </optgroup>
+                            </select>
+                        </div> <!-- form-group end.// -->
+                    </div> <!-- form-row.// -->
+
+                    <div class="form-group ">
+                        <label>Vivienda</label>
+                        <select class="form-control" name="vivienda">
+                            <option>Seleccione</option>
+                            {% for vivienda in viviendas %}
+                            <option>{{vivienda.tipo}}</option>
+                            {% endfor %}
+                        </select>
+                    </div> <!-- form-group end.// -->
+                    <div class="form-group">
+                        <label>Create password</label>
+                        <input class="form-control" type="password" name="password" id="password">
+                    </div> <!-- form-group end.// -->
+        </div>
+
+
+
+        <div class="form-group">
+            <button type="submit" value="Grabar" class="btn btn-primary btn-block"> Register </button>
+        </div> <!-- form-group// -->
+        </form>
+        </article> <!-- card-body end .// -->
+        <div class="border-top card-body text-center">Have an account? <a href="/login">Log In</a></div>
+    </div> <!-- card.// -->
+</div> <!-- col.//-->
+<a href="{% url 'home' %}">Volver al Menú</a>
+{% if respuesta %}
+<h1>El registro se ha guardado correctamente</h1>
+{% endif %}
+</div> <!-- row.//-->
+
+{% endblock contenido %}

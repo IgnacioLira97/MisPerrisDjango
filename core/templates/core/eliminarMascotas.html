@@ -1,0 +1,44 @@
+{% extends 'core/menu.html' %}
+{% block titulo %}
+Eliminar
+{% endblock %}
+{% block contenido %}
+
+<h1>Eliminar Mascota</h1>
+<form method="POST">
+    {% csrf_token %}
+    Seleccione mascota a eliminar:
+    <select name="id">
+        <option>Seleccionar ID Mascota</option>
+        {% for p in mascotas %}
+        <option>{{p.idMascota}}</option>
+        {% endfor %}
+    </select>
+    <input type="submit" class="btn btn-success" value="Eliminar"/>
+</form>
+<table class="table table-bordered" style="width:100%;background: white;" >
+    <tr>
+        <td>ID Mascota</td>
+        <td>Nombre</td>
+        <td>Descripción</td>
+        <td>Foto</td>
+        <td>Raza</td>
+        <td>Estado</td>
+    </tr>
+    {{MEDIA_URL}}
+    {% for p in mascotas %}
+    <tr>
+        <td>{{p.idMascota}}</td>
+        <td>{{p.name}}</td>
+        <td>{{p.descripcion}}</td>
+        <td><img src="../media/{{p.foto}}" width="100px"></td>
+        <td>{{p.raza}}</td>
+        <td>{{p.idEstado}}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% if respuesta %}
+    <h1>El registro se ha elimnado correctamente</h1>
+{% endif %}
+<a href="{% url 'menu_perros' %}">Volver</a>
+{% endblock %}

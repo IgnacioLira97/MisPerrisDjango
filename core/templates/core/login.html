@@ -1,0 +1,72 @@
+{% extends 'core/menu.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+
+{% block contenido %}
+
+<head>
+  {% load static %}
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+  <div class="container">
+    <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <div class="panel-title">Sign In</div>
+          <div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="/recuperar">Forgot password?</a></div>
+        </div>
+
+        <div style="padding-top:30px" class="panel-body">
+
+          <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+
+          <form id="loginform" class="form-horizontal" role="form" method="POST"> 
+            {% csrf_token %}
+            
+
+            
+            <div style="margin-bottom: 25px" class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+              <input id="txtUsuario" type="text" class="form-control" name="txtUsuario" value="" placeholder="username or email"
+                required="">
+            </div>
+
+            <div style="margin-bottom: 25px" class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+              <input id="txtPass" type="password" class="form-control" name="txtPass" placeholder="password" required="">
+            </div>
+
+
+
+            <div style="margin-top:10px" class="form-group">
+              <!-- Button -->
+
+              <div class="col-sm-12 controls">
+                <button class="btn btn-primary" type="submit" id="btnLogueo">Ingresar</button>
+                <a id="btn-fblogin" href="{% url 'reg' %}" class="btn btn-primary">Register</a>
+                {% if funca %}
+
+                <h1></h1>
+                {% endif%}
+                {% if error %}
+                <div class="alert alert-danger" role="alert">
+                  Datos Invalidos
+                </div>
+                {% endif%}
+              </div>
+            </div>
+
+          </form>
+
+
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+  {% endblock contenido %}

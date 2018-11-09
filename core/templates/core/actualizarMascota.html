@@ -1,0 +1,88 @@
+{% extends 'core/menu.html' %}
+
+{% block modificarMascotas %}
+<h1>Formulario para actualización de mascotas</h1>
+{{mensaje}}
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table class="table"style="background-color:#e4ffea">
+        <tr>
+            <td>ID Mascota:</td>
+            <td>
+                <select name="id">
+                    {% for p in user %}
+                        {% if p.idMascota == pe.idMascota %}
+                            <option selected>{{p.idMascota}}</option>
+                        {% else %}
+                            <option>{{p.idMascota}}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+                <input type="submit" name="btnAccion" value="Buscar"/>
+            </td>
+        </tr>
+        <tr>
+            <td>Nombre:</td>
+            <td>
+                <input type="text" name="nombre" value="{{pe.name}}" min="1" maxlength="50"/>
+            </td>
+        </tr>
+
+        <!-- <tr>
+            <td>foto:</td>
+            <td>
+                <input type="file" name="foto" value="{{pe.foto}}"/>
+            </td>
+        </tr> -->
+        
+        <tr>
+            <td>Descripción:</td>
+            <td>
+                <input type="text" name="descripcion" value="{{pe.descripcion}}" min="1" maxlength="255"/>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Raza:</td>
+            <td>
+                <select name="raza" required>
+                    <option>Seleccione</option>
+                    {% for raza in razas %}
+                        {% if raza.Raza == pe.raza.Raza %}
+                                <option selected>{{raza.Raza}}</option>
+                            {% else %}
+                                <option>{{raza.Raza}} </option>
+                            {% endif %}
+                    {% endfor %}
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Estado:</td>
+            <td>
+                <select name="estado" required>
+                    <option>Seleccione</option>
+                    {% for estado in estados %}
+                        {% if estado.name == pe.idEstado.name %}
+                                <option selected>{{estado.name}}</option>
+                            {% else %}
+                                <option>{{estado.name}} </option>
+                            {% endif %}
+                    {% endfor %}
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input class="btn btn-success" type="submit" name="btnAccion" value="Modificar"/>
+                <input class="btn btn-success" type="reset" name="btnAccion" value="Limpiar"/>
+            </td>
+        </tr>
+    </table>
+</form>
+<br>
+{% if respuesta %}
+   <h1>El registro se ha actualizado correctamente</h1>
+{% endif %}
+<a href="{% url 'menu_perros' %}" class="btn btn-success">Volver al Menú</a>
+{% endblock modificarMascotas %}

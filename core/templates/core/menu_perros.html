@@ -1,0 +1,46 @@
+{% extends 'core/menu.html' %}
+
+{% load static %}
+
+{% block contenido %}
+
+<div class="content">
+        <section class="main_articles">
+                <article>
+                        <div class="imgbox">
+                                <img src="{% static 'core/img/perro.png' %}" class="center-fit" />
+                        </div>
+                        <table>
+                                <tr>
+                                        <td>
+                                                <nav>
+
+                                                        <ul class="navegacion">
+                                                                <li>
+                                                                        <a href="{% url 'agregarMascota' %}">Agregar</a>
+                                                                </li>
+
+                                                                <li>
+                                                                        <a href="{% url 'listarMascotas' %}">Listar</a>
+                                                                </li>
+
+                                                                <li>
+                                                                        <a href="{% url 'actualizarMascota' %}">Modificar</a>
+                                                                </li>
+                                                                
+                                                                <li>
+                                                                        <a href="{% url 'eliminarMascota' %}">Eliminar</a>
+                                                                </li>
+
+                                                                <a href="{% url 'servicios' %}"class="menu btn btn-success">Volver</a>
+
+                                                        </ul>
+
+                                                </nav>
+                                        </td>
+                                </tr>
+
+                        </table>
+
+</div>
+{% endblock contenido %}

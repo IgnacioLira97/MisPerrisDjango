@@ -1,0 +1,43 @@
+{% extends 'core/menu.html' %}
+{% block titulo %}
+    Menú Gestión Postulante
+{% endblock %}
+{% load static %}
+
+{% block contenido %}
+
+<div class="content">
+        <section class="main_articles">
+                <article>
+                        <div class="imgbox">
+                                <img src="{% static 'core/img/perro.png' %}" class="center-fit" />
+                        </div>
+                        <table>
+                                <tr>
+                                        <td>
+                                                <nav >
+
+                                                        <ul class="navegacion">
+                                                                <li>
+                                                                        <a class="" href="{% url 'formulario' %}">Agregar</a>
+                                                                </li>
+
+                                                                <li>
+                                                                        <a class="" href="{% url 'listar_personas' %}">Listar</a>
+                                                                </li>
+
+                                                                <li>
+                                                                        <a class="" href="{% url 'modificar_personas' %}">Modificar</a>
+                                                                </li>
+                                                                <a href="{% url 'servicios' %}"class="menu btn btn-success">Volver</a>
+
+                                                        </ul>
+
+                                                </nav>
+                                        </td>
+                                </tr>
+
+                        </table>
+
+</div>
+{% endblock contenido %}

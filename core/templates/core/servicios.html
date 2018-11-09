@@ -1,0 +1,32 @@
+{% extends 'core/menu.html' %}
+{% load static %}
+{% block titulo %}
+    Página de Gestión Fundación Mis Perris
+{% endblock %}
+
+{% block contenido %}
+
+<div class="content">
+    <section class="main_articles">
+        <article>
+            <div class="imgbox">
+                <img src="{% static 'core/img/perro.png' %}" class="center-fit" />
+            </div>
+            <table>
+                <tr>
+                    <td>
+                        <nav id="Nav">
+
+
+                            
+                                <a class="navcenter" href="{% url 'menu_persona' %}">Menú Usuarios</a>
+                            
+                                <a class="navcenter" href="{% url 'menu_perros' %}">Menú Perros</a>
+                        </nav>
+                    </td>
+                </tr>
+
+            </table>
+
+</div>
+{% endblock contenido %}

@@ -1,0 +1,78 @@
+{% extends 'core/menu.html' %}
+
+{% block agregarMascota %}
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<link rel="stylesheet" type="text/css" media="screen" href="css/design.css " />  
+<script src="js/combo.js"></script>
+<script src="js/Telefono.js"></script>
+<script src="js/jquery-3.3.1.min.js"></script>
+
+<form action="" id="agregarMascota" method="POST" enctype="multipart/form-data">
+    <h1>Formulario ingreso de Mascota</h1>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <table class="table" style="background-color:#e4ffea">
+
+
+            <tr>
+                <td>Nombre:</td>
+                <td>
+                    <input type="text" name="nombre" id="nombre" required minlength="1" maxlength="50"/>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Foto:</td>
+                <td>
+                    <input type="file" name="foto" id="foto" type="image" required/> 
+                </td>
+            </tr>
+
+            <tr>
+                <td>Descripción:</td>
+                <td>
+                    <input type="text" name="descripcion" id="descripcion" required minlength="1" maxlength="255"/>
+                </td>
+            </tr>
+            
+            <tr>
+                <td>Raza:</td>
+                <td>
+                    <select name="raza" required>
+                        <option required>Seleccione</option>
+                        {% for raza in razas %}
+                        <option required>{{raza.Raza}}</option>
+                        {% endfor %}
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Estado:</td>
+                <td>
+                    <select name="estado" required>
+                        <option>Seleccione</option>
+                        {% for estado in estados %}
+                        <option required>{{estado.name}}</option>
+                        {% endfor %}
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <input class="btn btn-success" type="submit" value="Grabar"/>
+                    <input class="btn btn-success" type="reset" value="Limpiar"/>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <br>
+    {% if respuesta %}
+       <h1>El registro se ha guardado correctamente.</h1>
+    {% endif %}
+    <a href="{% url 'menu_perros' %}" class="btn btn-success">Volver al Menú</a>
+{% endblock agregarMascota %}

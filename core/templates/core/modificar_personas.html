@@ -1,0 +1,103 @@
+{% extends 'core/menu.html' %}
+{% block titulo %}
+    Update
+{% endblock %}
+{% block contenido %}
+    <h1>Formulario Actualizar Personas</h1>
+    <h1>{{mensaje}}</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <table class="table" style="background-color:#e4ffea;">
+            <tr>
+                <td>Rut:</td>
+                <td>
+                    <select name="run">
+                        {% for p in user %}
+                            {% if p.run == pe.run %}
+                                <option selected>{{p.run}}</option>
+                            {% else %}
+                                <option>{{p.run}}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+                    <input type="submit" class="menu btn btn-success" name="btnAccion" value="Buscar"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Nombre de usuario:</td>
+                <td>
+                    <input type="text" name="usuario" id="usuario" value="{{pe.usuario}}"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Nombre:</td>
+                <td>
+                    <input type="text" name="nombre" value="{{pe.nombre}}"/>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Correo:</td>
+                <td>
+                    <input type="email" name="correo" value="{{pe.correo}}"/>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Fecha de Nacimiento:</td>
+                <td>
+                    <input type="date" name="fecha" value="{{pe.fechaNacimiento}}"/>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Telefono:</td>
+                <td>
+                    <input type="text" name="telefono" value="{{pe.telefono}}"/>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Region:</td>
+                <td>
+                    <select class="form-control"  id="regiones" name="region"><optgroup label="This is a group"><option value="{{pe.region}}" selected>This is item 1</option></optgroup></select>
+
+                </td>
+            </tr>
+            <tr>
+                <td>ciudad:</td>
+                <td>
+                    <select class="form-control" id="comunas"  name="comuna"><optgroup label="This is a group"><option value="{{pe.comuna}}" selected>This is item 1</option></optgroup></select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Tipo de Vivienda:</td>
+                <td>
+                    <select name="vivienda">
+                        <option>Seleccione</option>
+                        {% for vivi in viviendas %}
+                            {% if vivi.tipo == pe.tipoVivienda.tipo %}
+                                    <option selected>{{vivi.tipo}}</option>
+                                {% else %}
+                                    <option>{{vivi.tipo}} </option>
+                                {% endif %}
+                        {% endfor %}
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input  class="menu btn btn-success" type="submit" name="btnAccion" value="Modificar"/>
+                    <input  class="menu btn btn-success" type="reset" value="Limpiar"/>
+                    <a href="{% url 'menu_persona' %}" class="menu btn btn-success">Volver al Menú</a>
+                </td>
+            </tr>
+        </table>
+    </form>
+    
+    {% if respuesta %}
+       <h1>El registro se ha actualizado correctamente</h1>
+    {% endif %}
+   
+{% endblock contenido %}

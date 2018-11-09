@@ -1,0 +1,74 @@
+{% extends 'core/menu.html' %}
+
+{% block contenido %}
+
+
+{% load static %}
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<!------ Include the above in your HEAD tag ---------->
+
+<div>
+  <form method="POST">
+    {% csrf_token %}
+    <select name="cboSelec" id="cboSelec">
+      {% for i in estados %}
+      <option value="{{i.idEstado}}">{{i.name}}</option>
+      {% endfor %}
+    </select>
+    <input type="submit" name="buscar" value="Buscar Mascotas" />
+    {%load static%}
+  </form>
+
+</div>
+
+<hr>
+<div class="container">
+  <div class="row">
+    {% for masc in mascotas %}
+    <div class="col-xs-18 col-sm-6 col-md-3">
+      <div class="thumbnail">
+        <img src="../media/{{masc.foto}}" width="200">
+        <div class="caption">
+
+          <h4>{{pe.nombrePerro}}</h4>
+
+          <table class="table table-bordered">
+
+            <td>
+              <p>ID Mascota</p>
+              <p>Nombre</p>
+              <p>Descripción</p>
+              <p>Raza</p>
+              <p>Estado</p>
+            </td>
+
+            <td>
+              <p>{{masc.idMascota}}</p>
+              <p>{{masc.name}}</p>
+              <p>{{masc.descripcion}}</p>
+              <p>{{masc.raza}}</p>
+              <p>{{masc.idEstado}}</p>
+            </td>
+
+          </table>
+          
+
+          <a href="{% url 'actualizarMascota' %}" class="btn btn-default btn-xs" role="button">Modificar</a>
+
+
+        </div>
+      </div>
+    </div>
+
+    {% endfor %}
+  </div>
+  <!--/row-->
+</div>
+
+<!--/container -->
+
+
+{% endblock contenido %}
