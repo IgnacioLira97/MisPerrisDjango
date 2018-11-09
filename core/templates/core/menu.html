@@ -50,17 +50,12 @@ background: rgb(133, 212, 183);
         <li>
             <a href="{% url 'home' %}">Inicio</a>
         </li>
-        <li>
-            <a href="#">Quienes somos</a>
-        </li>
         {% if admin %}
         <li>
             <a href="{% url 'servicios' %}">Servicios</a>
         </li>
         {% endif %}
-        <li>
-            <a href="#">Contactanos</a>
-        </li>
+
         <li>
             <a href="{% url 'ListarMascotasGaleria' %}">Galeria</a>
         </li>
