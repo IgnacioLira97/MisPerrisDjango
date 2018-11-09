@@ -35,7 +35,7 @@ background: rgb(133, 212, 183);
             margin-left: 25%
         }
     </style>
-    
+
 
     <title>
         {% block titulo %}
@@ -45,7 +45,7 @@ background: rgb(133, 212, 183);
 </head>
 
 <div class="Container.estilos" style="background: rgb(133, 212, 183)">
-    <a href="{% url 'home' %}"><img class="logo.estilos" src="{% static 'core/img/logo.png' %}"  alt="logo"></a> 
+    <a href="{% url 'home' %}"><img class="logo.estilos" src="{% static 'core/img/logo.png' %}" alt="logo"></a>
     <ul class="navegacion">
         <li>
             <a href="{% url 'home' %}">Inicio</a>
@@ -67,8 +67,9 @@ background: rgb(133, 212, 183);
 
         {% if ingresado %}
         <li>
-            <a href="{% url 'logout' %}">Salir</a>
+            <a href="{% url 'logout' %}">Salir ({{user.get_username}})</a>
         </li>
+
         {% endif %}
         <!-- Login only shows up on hompage navmenu -->
         {% if deslog %}
@@ -78,6 +79,8 @@ background: rgb(133, 212, 183);
         {% endif %}
 
     </ul>
+
+
     {% block agregarMascota %}
 
     {% endblock agregarMascota %}

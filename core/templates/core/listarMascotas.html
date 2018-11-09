@@ -1,6 +1,8 @@
 {% extends 'core/menu.html' %}
 {% load static %}
-
+{% block titulo %}
+    Listar Mascotas
+{% endblock %}
 {% block listarMascotas %}
 <div class="content.estilos">
     <section class="main_articles">
@@ -47,19 +49,20 @@
                     </a>
                 </div>
             </div> 
-<div class="galeria">
+<div class="galeria"></div>
 <h1>Listado de Mascotas</h1>
-<table class="table table-bordered" style="width:100%;background-color:#e4ffea;" >
+<table class="table table-striped table-bordered" style="width:100%;background: white;background-color:#e4ffea ">
     <tr>
-        <td>ID Mascota</td>
-        <td>Nombre</td>
-        <td>Descripción</td>
-        <td>Foto</td>
-        <td>Raza</td>
-        <td>Estado</td>
+        <th>ID Mascota</th>
+        <th>Nombre</th>
+        <th>Descripción</th>
+        <th>Foto</th>
+        <th>Raza</th>
+        <th>Estado</th>
     </tr>
-    {{MEDIA_URL}}
+
     {% for p in mascotas %}
+
     <tr>
         <td>{{p.idMascota}}</td>
         <td>{{p.name}}</td>
@@ -69,6 +72,6 @@
         <td>{{p.idEstado}}</td>
     </tr>
     {% endfor %}
+    <a href="{% url 'menu_perros' %}"class="menu btn btn-success">Volver al Menú</a>
 </table>
-<a href="{% url 'menu_perros' %}"class="menu btn btn-success">Volver</a>
 {% endblock listarMascotas %}

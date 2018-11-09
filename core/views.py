@@ -71,11 +71,18 @@ def actualizarMascota(request):
 def eliminarMascotas(request):
     masc=Mascota.objects.all()
     resp=False
-    if request.POST:
-        id=request.POST.get("id","")
-        mascota=Mascota.objects.get(idMascota=id)
-        mascota.delete()
-        resp=True
+    if  request.user.is_authenticated:
+        na=request.user.is_staff
+        if na ==True:
+            if request.POST:
+                id=request.POST.get("id","")
+                mascota=Mascota.objects.get(idMascota=id)
+                mascota.delete()
+                resp=True
+            return render(request,'core/eliminarMascotas.html',{'mascotas':masc,'respuesta':resp,'ingresado':True,'na':na,'admin':True})
+        else:
+            return render(request,'core/eliminarMascotas.html',{'mascotas':masc,'respuesta':resp,'ingresado':True,'na':na})
+
     return render(request,'core/eliminarMascotas.html',{'mascotas':masc,'respuesta':resp})
 
 @login_required
@@ -90,6 +97,10 @@ def agregarMascota(request):
     masc=Mascota.objects.all()
     resp=False
     if request.POST:
+        j=1
+        for s in masc:
+            j=j+1
+        i=j+1
         id=request.POST.get("id","")
         name=request.POST.get("nombre","")
         foto=request.FILES.get("foto","")
@@ -98,10 +109,7 @@ def agregarMascota(request):
         obj_raza=Raza.objects.get(Raza=raza)
         vivi=request.POST.get("estado","")
         obj_estado=Estado.objects.get(name=vivi)
-        j=1
-        for s in masc:
-            j=j+1
-        i=j+1
+        
         masc=Mascota(
             idMascota=j,
             name=name,
@@ -272,15 +280,8 @@ def ListarMascotasGaleria(request):
         return render(request,'core/ListarMascotasGaleria.html',{'mascotas':masc,'estados':status,'s':True})
     return render(request,'core/ListarMascotasGaleria.html',{'mascotas':masc,'estados':status,'s':True})
 
-
-
-
-
-                
-
-
+  
 def recuperar(request):
-
     if request.POST:
         exs=request.POST.get("txtUsuario")
         try:
@@ -290,7 +291,7 @@ def recuperar(request):
         us=user.usuario
         password=user.password
         email=user.correo
-        mssg="Hola "+us+", nuestro sistema no acaba de indicar que ha perdido su password. Su password para poder acceder al sistema es: "+password+". No la comparta con nadie."
+        mssg="Hola "+us+", Su password para acceder al sistema es "+password+". No la comparta con nadie."
         remitente = 'misperris.no.reply@gmail.com'
         destinatario  = email
         mensaje = mssg
@@ -299,7 +300,7 @@ def recuperar(request):
         server = smtplib.SMTP('smtp.gmail.com:587')
         server.starttls()
         server.login(usuario,clave)
-        server.sendmail(remitente,destinatario,mensaje.encode())
+        server.sendmail(remitente,destinatario,mensaje)
         server.quit()
 
         return render(request,'core/recuperar.html',{'correo':email})

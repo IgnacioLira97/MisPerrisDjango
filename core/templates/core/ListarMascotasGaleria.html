@@ -1,5 +1,7 @@
 {% extends 'core/menu.html' %}
-
+{% block titulo %}
+    Galería Mis Perris
+{% endblock %}
 {% block contenido %}
 
 
@@ -10,7 +12,7 @@
 <!------ Include the above in your HEAD tag ---------->
 <!------ Include the above in your HEAD tag ---------->
 
-<div>
+<div style="float: right">
   <form method="POST">
     {% csrf_token %}
     <select name="cboSelec" id="cboSelec">
@@ -18,7 +20,8 @@
       <option value="{{i.idEstado}}">{{i.name}}</option>
       {% endfor %}
     </select>
-    <input type="submit" name="buscar" value="Buscar Mascotas" />
+    <input type="submit" name="buscar" class="btn btn-success" value="Buscar Mascotas" />
+    
     {%load static%}
   </form>
 

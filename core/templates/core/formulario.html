@@ -5,7 +5,9 @@
 {% endblock titulo %}
 {% block contenido %}
 
-<div style="box-align: center" class="row justify-content-center">
+<div class="row justify-content-center" style="
+width: 100%;
+">
     <div class="col-md-6">
         <div class="card">
             <header class="card-header">
@@ -22,7 +24,7 @@
                         </div> <!-- form-group end.// -->
                         <div class="col form-group">
                             <label>Nombre de Usuario</label>
-                            <input type="text" class="form-control" name="usuario" id="usuario" placeholder="usuario12" required min="1" maxlength="30">
+                            <input type="text" class="form-control" name="usuario" id="usuario" placeholder="Usuario" required min="1" maxlength="30">
                         </div> <!-- form-group end.// -->
                     </div> <!-- form-row end.// -->
                     <div class="form-row">
@@ -33,7 +35,7 @@
                         </div>
                         <div class="col form-group">
                                 <label>Nombre</label>
-                                <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Gringo San" required minlength="1" maxlength="50">
+                                <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre" required minlength="1" maxlength="50">
                             </div>
                     </div>
                     <!-- form-group end.// -->
@@ -45,7 +47,7 @@
                         <div class="form-group col-md-6">
                             <div>
                                 <label>Telefono</label>
-                                <input class="form-control" type="text" name="telefono" id="telefono" minlength="9" maxlength="9" placeholder="123456789" required/>
+                                <input class="form-control" type="text" name="telefono" id="telefono" minlength="9" maxlength="9" placeholder="123456789" onKeyPress="if (event.keyCode < 48 || event.keyCode > 57)event.returnValue = false;" required/>
                             </div>
                         </div>
                     </div>
